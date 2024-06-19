@@ -7,11 +7,11 @@ const userRouter = require('./routes/users.routes')
 const userNotes = require('./routes/notes.routes')
 
 require('dotenv').config()
-
+const JWT_SECRET = process.env.JWT_SECRET;
 const port = process.env.PORT || 5000
 
 const uri = process.env.ATLAS_URI
-mongoose.connect(uri, { useNewUrlParser: true })
+mongoose.connect(uri, { dbName: 'mera-notebook' })
 
 const connection = mongoose.connection
 connection.once('open', () => {
@@ -26,3 +26,5 @@ app.use('/notes', userNotes)
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)
 })
+
+module.exports = JWT_SECRET;

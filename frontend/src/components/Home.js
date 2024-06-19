@@ -16,7 +16,7 @@ export default function Home(props) {
         } else {
             navigate('/login')
         }
-    }, [])
+    }, [navigate])
 
     return (
         <div>

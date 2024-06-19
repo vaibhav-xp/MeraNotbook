@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { BASE_URL } from '../context/notes/NoteState'
 
 export default function Login(props) {
 
@@ -12,7 +13,7 @@ export default function Login(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const url = `http://localhost:5000/users/login`
+        const url = `${BASE_URL}/users/login`
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -21,7 +22,6 @@ export default function Login(props) {
             body: JSON.stringify({ email: credential.email, password: credential.password })
         })
         const json = await response.json();
-        console.log(json)
         if (json.authToken) {
             localStorage.setItem('token', json.authToken);
             navigate("/");

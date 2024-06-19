@@ -25,6 +25,8 @@ export default function Note(props) {
         setUdpateNotes({ ...noteUpdate, [e.target.name]: e.target.value })
     }
 
+    console.log(notes)
+
     return (
         // Edit Note 
         <div className='row my-3'>
@@ -40,19 +42,19 @@ export default function Note(props) {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                                <div className="mb-3">
-                                    <label htmlFor="title" className="form-label">Title</label>
-                                    <input minLength={5} required type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp"
+                            <div className="mb-3">
+                                <label htmlFor="title" className="form-label">Title</label>
+                                <input minLength={5} required type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp"
                                     value={noteUpdate.title} onChange={onChange} />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="description" className="form-label">Description</label>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="description" className="form-label">Description</label>
                                 <input minLength={5} required type="text" value={noteUpdate.description} className="form-control" id="description" name="description" onChange={onChange} />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="tag" className="form-label">Tags</label>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="tag" className="form-label">Tags</label>
                                 <input minLength={5} type="text" className="form-control" value={noteUpdate.tag} id="tag" name="tag" onChange={onChange} />
-                                </div>
+                            </div>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

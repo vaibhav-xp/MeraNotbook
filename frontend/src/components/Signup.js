@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { BASE_URL } from '../context/notes/NoteState'
 
 export default function Signup(props) {
   const { showAlert } = props
@@ -16,7 +17,7 @@ export default function Signup(props) {
     if (credential.password !== credential.cpassword) {
       return props.showAlert("Password Doesn't Match", "warning")
     } else {
-      const url = `http://localhost:5000/users/create-user`
+      const url = `${BASE_URL}/users/create-user`
       const response = await fetch(url, {
         method: "POST",
         headers: {

@@ -21,17 +21,9 @@ export default function Navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/">Home</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/about">About</a>
-                        </li>
-                    </ul>
-                    <div className="d-flex">
-                        {!token && <a href="/login" role="button" className="btn btn-primary mx-2">LogIn</a>}
-                        {!token && <a href="/signup" role="button" className="btn btn-primary mx-2">SignUp</a>}
+                    <div className="d-flex flex-row-reverse w-100 sm-p-4 ">
+                        {!token && <Link to="/login" role="button" className="btn btn-primary mx-2">LogIn</Link>}
+                        {!token && <Link to="/signup" role="button" className="btn btn-primary mx-2">SignUp</Link>}
                         {token && <button onClick={() => LogOut()} className="btn btn-primary mx-2">Logout</button>}
                     </div>
                 </div>
