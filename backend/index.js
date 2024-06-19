@@ -22,6 +22,11 @@ app.use(cors())
 app.use(express.json())
 app.use("/users", userRouter)
 app.use('/notes', userNotes)
+app.get("/", (req, res) => {
+    res.json({
+        status: "Ok"
+    })
+})
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)
